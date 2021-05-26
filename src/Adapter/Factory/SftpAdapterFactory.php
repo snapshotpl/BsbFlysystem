@@ -22,6 +22,7 @@ namespace BsbFlysystem\Adapter\Factory;
 use BsbFlysystem\Exception\RequirementsException;
 use BsbFlysystem\Exception\UnexpectedValueException;
 use League\Flysystem\AdapterInterface;
+use League\Flysystem\PhpseclibV2\SftpAdapter;
 use League\Flysystem\Sftp\SftpAdapter as Adapter;
 use Psr\Container\ContainerInterface;
 
@@ -29,11 +30,11 @@ class SftpAdapterFactory extends AbstractAdapterFactory
 {
     public function doCreateService(ContainerInterface $container)
     {
-        if (! \class_exists(Adapter::class)) {
+        if (! \class_exists(SftpAdapter::class)) {
             throw new RequirementsException(['league/flysystem-sftp'], 'Sftp');
         }
 
-        return new Adapter($this->options);
+        return new SftpAdapter($this->options);
     }
 
     protected function validateConfig(): void

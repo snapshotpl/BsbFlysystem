@@ -22,13 +22,14 @@ namespace BsbFlysystem\Adapter\Factory;
 use BsbFlysystem\Exception\UnexpectedValueException;
 use League\Flysystem\Adapter\Ftp as Adapter;
 use League\Flysystem\AdapterInterface;
+use League\Flysystem\Ftp\FtpAdapter;
 use Psr\Container\ContainerInterface;
 
 class FtpAdapterFactory extends AbstractAdapterFactory
 {
     public function doCreateService(ContainerInterface $container)
     {
-        return new Adapter($this->options);
+        return new FtpAdapter($this->options);
     }
 
     protected function validateConfig(): void

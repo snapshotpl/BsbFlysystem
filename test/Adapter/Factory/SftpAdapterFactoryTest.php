@@ -56,7 +56,7 @@ class SftpAdapterFactoryTest extends TestCase
 
         $adapter = $factory($sm, 'sftp_default');
 
-        $this->assertInstanceOf(SftpAdapter::class, $adapter);
+        $this->assertInstanceOf(\League\Flysystem\PhpseclibV2\SftpAdapter::class, $adapter);
     }
 
     /**

@@ -21,7 +21,7 @@ namespace BsbFlysystemTest\Adapter\Factory;
 
 use BsbFlysystem\Adapter\Factory\FtpAdapterFactory;
 use BsbFlysystemTest\Bootstrap;
-use League\Flysystem\Adapter\Ftp;
+use League\Flysystem\Ftp\FtpAdapter;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionMethod;
@@ -56,7 +56,7 @@ class FtpAdapterFactoryTest extends TestCase
 
         $adapter = $factory($sm, 'ftp_default');
 
-        $this->assertInstanceOf(Ftp::class, $adapter);
+        $this->assertInstanceOf(FtpAdapter::class, $adapter);
     }
 
     /**
