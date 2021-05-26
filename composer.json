@@ -18,23 +18,26 @@
     "require": {
         "php": "^7.3 || ^8.0",
         "laminas/laminas-stdlib": "^3.0",
-        "league/flysystem": "^1.0.41 || ^2.0.8",
+        "league/flysystem": "^2.0.8",
         "psr/container": "^1.0"
     },
     "require-dev": {
-        "league/flysystem-aws-s3-v3": "~1.0 || ^2.0.6",
-        "league/flysystem-sftp": "~1.0 || ^2.0.8",
-        "league/flysystem-ziparchive": "~1.0 || ^2.0.6",
-        "ocramius/proxy-manager": "~1.0 || ~2.0",
-        "php-coveralls/php-coveralls": "^2.1",
-        "phpunit/phpunit": "^9.4.2",
-        "spatie/flysystem-dropbox": "~1.0 || ^2.0.4",
         "laminas/laminas-code": "^3.3.1 || ^4.0.0",
         "laminas/laminas-config": "^3.1",
         "laminas/laminas-filter": "^2.9.1",
         "laminas/laminas-modulemanager": "^2.7.3",
         "laminas/laminas-mvc": "^3.0",
-        "laminas/laminas-servicemanager": "^3.3"
+        "laminas/laminas-servicemanager": "^3.3",
+        "league/flysystem-async-aws-s3": "^2.0",
+        "league/flysystem-aws-s3-v3": "^2.0.6",
+        "league/flysystem-ftp": "^2.0",
+        "league/flysystem-memory": "^2.0",
+        "league/flysystem-sftp": "^2.0.8",
+        "league/flysystem-ziparchive": "^2.0.6",
+        "ocramius/proxy-manager": "~1.0 || ~2.0",
+        "php-coveralls/php-coveralls": "^2.1",
+        "phpunit/phpunit": "^9.4.2",
+        "spatie/flysystem-dropbox": "^2.0.4"
     },
     "suggest": {
         "laminas/laminas-cache": "laminas-cache component ^2.8, if you need laminas-cache support",
