@@ -29,7 +29,7 @@ use Psr\Container\ContainerInterface;
 
 class RackspaceAdapterFactory extends AbstractAdapterFactory
 {
-    public function doCreateService(ContainerInterface $container): AdapterInterface
+    public function doCreateService(ContainerInterface $container)
     {
         if (! \class_exists(Adapter::class) ||
             ! \class_exists(LazyLoadingValueHolderFactory::class)

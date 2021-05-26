@@ -27,7 +27,7 @@ use Psr\Container\ContainerInterface;
 
 class ZipArchiveAdapterFactory extends AbstractAdapterFactory
 {
-    public function doCreateService(ContainerInterface $container): AdapterInterface
+    public function doCreateService(ContainerInterface $container)
     {
         if (! \class_exists(Adapter::class)) {
             throw new RequirementsException(['league/ziparchive'], 'ZipArchive');

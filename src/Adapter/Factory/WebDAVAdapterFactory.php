@@ -28,7 +28,7 @@ use Sabre\DAV\Client;
 
 class WebDAVAdapterFactory extends AbstractAdapterFactory
 {
-    public function doCreateService(ContainerInterface $container): AdapterInterface
+    public function doCreateService(ContainerInterface $container)
     {
         if (! \class_exists(Adapter::class)) {
             throw new RequirementsException(['league/flysystem-webdav'], 'WebDAV');

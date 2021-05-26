@@ -22,13 +22,18 @@ namespace BsbFlysystem\Adapter\Factory;
 use BsbFlysystem\Exception\RequirementsException;
 use BsbFlysystem\Exception\UnexpectedValueException;
 use League\Flysystem\AdapterInterface;
+use League\Flysystem\FilesystemAdapter;
 use Psr\Container\ContainerInterface;
 use Spatie\Dropbox\Client;
 use Spatie\FlysystemDropbox\DropboxAdapter as Adapter;
 
+
 class DropboxAdapterFactory extends AbstractAdapterFactory
 {
-    public function doCreateService(ContainerInterface $container): AdapterInterface
+    /**
+     * @return AdapterInterface|FilesystemAdapter
+     */
+    public function doCreateService(ContainerInterface $container)
     {
         if (! \class_exists(Adapter::class)) {
             throw new RequirementsException(['spatie/flysystem-dropbox'], 'Dropbox');

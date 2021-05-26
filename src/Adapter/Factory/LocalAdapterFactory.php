@@ -22,11 +22,12 @@ namespace BsbFlysystem\Adapter\Factory;
 use BsbFlysystem\Exception\UnexpectedValueException;
 use League\Flysystem\Adapter\Local as Adapter;
 use League\Flysystem\AdapterInterface;
+use League\Flysystem\Local\LocalFilesystemAdapter;
 use Psr\Container\ContainerInterface;
 
 class LocalAdapterFactory extends AbstractAdapterFactory
 {
-    public function doCreateService(ContainerInterface $container): AdapterInterface
+    public function doCreateService(ContainerInterface $container)
     {
         $options = [];
         $options[] = $this->options['root'];
@@ -38,6 +39,10 @@ class LocalAdapterFactory extends AbstractAdapterFactory
             if (isset($this->options['permissions'])) { // since 1.0.14
                 $options[] = $this->options['permissions'];
             }
+        }
+
+        if (class_exists(LocalFilesystemAdapter::class)) {
+            return new LocalFilesystemAdapter($this->options['location']);
         }
 
         return new Adapter(...$options);

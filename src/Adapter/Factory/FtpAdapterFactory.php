@@ -26,7 +26,7 @@ use Psr\Container\ContainerInterface;
 
 class FtpAdapterFactory extends AbstractAdapterFactory
 {
-    public function doCreateService(ContainerInterface $container): AdapterInterface
+    public function doCreateService(ContainerInterface $container)
     {
         return new Adapter($this->options);
     }

@@ -28,7 +28,7 @@ use Psr\Container\ContainerInterface;
 
 class AzureAdapterFactory extends AbstractAdapterFactory
 {
-    public function doCreateService(ContainerInterface $container): AdapterInterface
+    public function doCreateService(ContainerInterface $container)
     {
         if (! \class_exists(Adapter::class)) {
             throw new RequirementsException(['league/flysystem-azure'], 'Azure');

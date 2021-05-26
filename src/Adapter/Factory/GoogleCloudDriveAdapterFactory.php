@@ -28,7 +28,7 @@ use Superbalist\Flysystem\GoogleStorage\GoogleStorageAdapter as Adapter;
 
 class GoogleCloudDriveAdapterFactory extends AbstractAdapterFactory
 {
-    public function doCreateService(ContainerInterface $container): AdapterInterface
+    public function doCreateService(ContainerInterface $container)
     {
         if (! \class_exists(Adapter::class)) {
             throw new RequirementsException(['superbalist/flysystem-google-storage'], 'GoogleCloudDrive');

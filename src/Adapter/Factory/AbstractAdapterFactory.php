@@ -22,6 +22,7 @@ namespace BsbFlysystem\Adapter\Factory;
 use InvalidArgumentException;
 use Laminas\Stdlib\ArrayUtils;
 use League\Flysystem\AdapterInterface;
+use League\Flysystem\FilesystemAdapter;
 use ProxyManager\Configuration;
 use ProxyManager\Factory\LazyLoadingValueHolderFactory;
 use ProxyManager\GeneratorStrategy\EvaluatingGeneratorStrategy;
@@ -50,7 +51,10 @@ abstract class AbstractAdapterFactory
         $this->options = $options;
     }
 
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null): AdapterInterface
+    /**
+     * @return AdapterInterface|FilesystemAdapter
+     */
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
         if (null !== $options) {
             $this->setCreationOptions($options);
@@ -65,7 +69,10 @@ abstract class AbstractAdapterFactory
         return $service;
     }
 
-    public function createService(ContainerInterface $container): AdapterInterface
+    /**
+     * @return AdapterInterface|FilesystemAdapter
+     */
+    public function createService(ContainerInterface $container)
     {
         if (\method_exists($container, 'getServiceLocator')) {
             $container = $container->getServiceLocator();
@@ -132,8 +139,10 @@ abstract class AbstractAdapterFactory
 
     /**
      * Create service.
+     *
+     * @return AdapterInterface|FilesystemAdapter
      */
-    abstract protected function doCreateService(ContainerInterface $container): AdapterInterface;
+    abstract protected function doCreateService(ContainerInterface $container);
 
     /**
      * Implement in adapter.
